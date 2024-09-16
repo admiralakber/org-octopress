@@ -2,12 +2,12 @@
 #+AUTHOR: Yoshinari Nomura (乃村 能成)
 #+AUTHOR: Aqeel Akber <aqeel@aqeelakber.com>
 #+DATE: 2013-03-19
-#+lastmod: <2024-09-16 Mon 21:17>
+#+lastmod: [2024-09-16 Mon 21:23]
 
 * About admiralakber's fork
 I ([[https://aqeelakber.com][admiralakber]]) use this fork for my blog ([[https://gitlab.com/admiralakber/aqeelakber.com][gitlab]]).
 
-So far, the only modification is adding the ~lastmod~ variable in export. Using the elisp in [[last modified code][sec: last modified code]], you can then use the variable ~page.lastmod~ in your jekyll templates, for example, like [[https://gitlab.com/admiralakber/aqeelakber.com/-/blob/64b5e678e14df1df7554e010251954348479b06e/_layouts/post.html][this (line 20)]].
+So far, the only modification is adding the ~lastmod~ variable in export. Using the elisp in [[last modified code][sec: last modified code]], you can then use the variable ~page.lastmod~ in your jekyll templates, for example, like [[https://gitlab.com/admiralakber/aqeelakber.com/-/blob/38e7d89ac489f1039f8dba5033ccee8593d95c3f/_layouts/post.html][this (line 20)]].
 
 You may find updated versions of this fork at [[https://github.com/admiralakber/org-octopress]]. Kudos goes to Yoshinari Nomura for most of the work.
 
@@ -19,7 +19,7 @@ Note, changing the variable =time-stamp-format= at global scope is controversial
 (setq time-stamp-active t
       time-stamp-start "#\\+lastmod:[ \t]*"
       time-stamp-end "$"
-      time-stamp-format "<%04Y-%02m-%02d %a %H:%M>")
+      time-stamp-format "[%04Y-%02m-%02d %a %H:%M]")
 (add-hook 'before-save-hook 'time-stamp nil)
 #+end_src
 
