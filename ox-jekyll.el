@@ -121,7 +121,8 @@ makes:
     (src-block . org-jekyll-src-block)
     (inner-template . org-jekyll-inner-template)) ;; force body-only
   :options-alist
-  '((:jekyll-layout "JEKYLL_LAYOUT" nil org-jekyll-layout)
+  '((:lastmod "LASTMOD" nil nil t)
+    (:jekyll-layout "JEKYLL_LAYOUT" nil org-jekyll-layout)
     (:jekyll-categories "JEKYLL_CATEGORIES" nil org-jekyll-categories)
     (:jekyll-tags "JEKYLL_TAGS" nil org-jekyll-tags)
     (:jekyll-published "JEKYLL_PUBLISHED" nil org-jekyll-published)
@@ -183,6 +184,8 @@ holding export options."
 (defun org-jekyll--yaml-front-matter (info)
   (let ((title
          (org-jekyll--get-option info :title))
+        (lastmod
+         (org-jekyll--get-option info :lastmod))
         (date
          (org-jekyll--get-option info :date))
         (layout
@@ -204,6 +207,7 @@ holding export options."
      "---"
      "\ntitle: \""    title
      "\"\ndate: "     date
+     "\nlastmod: "    lastmod
      "\nlayout: "     layout
      "\ncategories: " (funcall convert-to-yaml-list  categories)
      "\ntags: "       (funcall convert-to-yaml-list tags)
